@@ -1,0 +1,8 @@
+
+<%= form_for :search, url: search_url, html: {class: "nifty_form"} do |f| %>
+  <%= f.label :rank %>
+  <%= f.number_field :rank %>
+  <%= f.label :branch %>
+<%= f.collection_select(:branch, Branch.all, :id, :name) %>
+  <%= f.submit "Search" %>
+<% end %>

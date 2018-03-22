@@ -82,6 +82,7 @@ csv.each do |row|
   
     branch = Branch.find_by(name: row['branch'])
     college = College.find_by(name: row['name'])
+    cutoff = Cutoff.find_by(college: college, branch: branch)
     max_rank_cutoff = Cutoff.where(branch: branch).maximum("rank")
     current_cutoff = Cutoff.find_by(branch: branch, college: college)
     current_rank = current_cutoff.rank
@@ -98,7 +99,7 @@ csv.each do |row|
     end
     ultimate_score =  ( final_score ** 0.5 )    * ( naac_percetile ** 0.5 )
     puts final_score
-    Score.create!(college: college , branch: branch, rankk_percentile: final_score, naac_percetile: naac_percetile , final_score: ultimate_score  )
+    Score.create!(college: college , branch: branch, rankk_percentile: final_score, naac_percetile: naac_percetile , final_score: ultimate_score , rank: cutoff.rank )
    end
 end
 

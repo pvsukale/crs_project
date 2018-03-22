@@ -66,4 +66,5 @@ CRS::Application.routes.draw do
   end
 
   root "home#index"
+  post "/search" => "home#results", as: :search
 end
