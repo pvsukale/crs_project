@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  college: one
+  branch: one
+  rank: 1
+
+two:
+  college: two
+  branch: two
+  rank: 1

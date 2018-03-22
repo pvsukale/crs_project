@@ -132,4 +132,5 @@ end
 group :development, :test do
   # For splitting tests across CircleCI containers
   gem "knapsack"
+  gem "byebug"
 end

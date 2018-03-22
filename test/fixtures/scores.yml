@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  college: one
+  branch: one
+  rankk_percentile: 1.5
+  naac_percetile: 1.5
+  final_score: 1.5
+
+two:
+  college: two
+  branch: two
+  rankk_percentile: 1.5
+  naac_percetile: 1.5
+  final_score: 1.5

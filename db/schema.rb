@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225143027) do
+ActiveRecord::Schema.define(version: 20180322171434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,29 @@ ActiveRecord::Schema.define(version: 20140225143027) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
+  create_table "branches", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "colleges", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "naac"
+  end
+
+  create_table "cutoffs", force: :cascade do |t|
+    t.bigint "college_id"
+    t.bigint "branch_id"
+    t.integer "rank"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["branch_id"], name: "index_cutoffs_on_branch_id"
+    t.index ["college_id"], name: "index_cutoffs_on_college_id"
+  end
+
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0
     t.integer "attempts", default: 0
@@ -42,6 +65,18 @@ ActiveRecord::Schema.define(version: 20140225143027) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.bigint "college_id"
+    t.bigint "branch_id"
+    t.float "rankk_percentile"
+    t.float "naac_percetile"
+    t.float "final_score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["branch_id"], name: "index_scores_on_branch_id"
+    t.index ["college_id"], name: "index_scores_on_college_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,4 +101,8 @@ ActiveRecord::Schema.define(version: 20140225143027) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cutoffs", "branches"
+  add_foreign_key "cutoffs", "colleges"
+  add_foreign_key "scores", "branches"
+  add_foreign_key "scores", "colleges"
 end
