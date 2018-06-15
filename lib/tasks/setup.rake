@@ -54,7 +54,7 @@ def create_user(options = {})
 end
 
 def import_data
-csv_text = File.read("/home/pvsukale/wheel/lib/tasks/final-data.csv")
+csv_text = File.read(File.join(Rails.root, 'lib', 'tasks', 'final-data.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'UTF-8')
 csv.each do |row|
   if !Branch.exists?(:name => row['branch'])
