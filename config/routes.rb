@@ -13,6 +13,7 @@ CRS::Application.routes.draw do
     get "/login" => "devise/sessions#new", as: :login
     get "/logout" => "sessions#destroy", :as => :logout
     get "/signup" => "registrations#new", :as => :signup
+    
     scope "my" do
       get "profile", to: "registrations#edit"
       put "profile/update", to: "registrations#update"
@@ -67,4 +68,7 @@ CRS::Application.routes.draw do
 
   root "home#index"
   post "/search" => "home#results", as: :search
+  get  "/college/:id" => "home#college", as: :college
+  get "/top-colleges-branch/:branch" => "home#branch" , as: :branch
+  get "/how-our-algorithm-works" => "home#algo", as: :algo
 end

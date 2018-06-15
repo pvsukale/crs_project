@@ -1,8 +1,112 @@
+<div class="jumbotron " style="background-color:#fff">
+  <h1 class="display-4">Find out the best colleges!</h1>
+  <p class="lead">It can be really confusing to decide which college to take admisson in. So we have created 
+  an algorithm that analyzes previous year rakings and NAAC grading for creating a final list.
+  </p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <p class="lead">
+     <%= link_to "Learn about the algorithm" , algo_path, class:"btn btn-primary btn-lg" %>
+   
+  </p>
+</div>
 
-<%= form_for :search, url: search_url, html: {class: "nifty_form"} do |f| %>
-  <%= f.label :rank %>
-  <%= f.number_field :rank %>
-  <%= f.label :branch %>
-<%= f.collection_select(:branch, Branch.all, :id, :name) %>
-  <%= f.submit "Search" %>
+<div class="flex-row d-flex flex-wrap justify-content-around">
+<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Top 10 Colleges</div>
+  <div class="card-body">
+    <h5 class="card-title">Computer Engineering</h5>
+     <p>Top colleges sorted using our smart algorithm that considers previous years rankings and naac grades</p>
+     <a class="btn btn-warning" href="/top-colleges-branch/1" role="button">Open List</a>
+  </div>
+</div>
+<div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">Top 10 Colleges</div>
+  <div class="card-body">
+    <h5 class="card-title">Civil Engineering</h5>
+     <p>Top colleges sorted using our smart algorithm that considers previous years rankings and naac grades</p>
+     <a class="btn btn-warning" href="/top-colleges-branch/6" role="button">Open List</a>
+  </div>
+</div>
+<div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+  <div class="card-header">Top 10 Colleges</div>
+  <div class="card-body">
+    <h5 class="card-title">Electrical Engineering</h5>
+     <p>Top colleges sorted using our smart algorithm that considers previous years rankings and naac grades</p>
+     <a class="btn btn-warning" href="/top-colleges-branch/19" role="button">Open List</a>
+  </div>
+</div>
+<div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+  <div class="card-header">Top 10 Colleges</div>
+  <div class="card-body">
+    <h5 class="card-title">Mechanical Engineering</h5>
+     <p>Top colleges sorted using our smart algorithm that considers previous years rankings and naac grades</p>
+     <a class="btn btn-warning" href="/top-colleges-branch/2" role="button">Open List</a>
+  </div>
+</div>
+
+<div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+  <div class="card-header">Top 10 Colleges</div>
+  <div class="card-body">
+    <h5 class="card-title">Electronics and Telicommunications Engineering</h5>
+     <p>Top colleges sorted using our smart algorithm that considers previous years rankings and naac grades</p>
+     <a class="btn btn-warning" href="/top-colleges-branch/5" role="button">Open List</a>
+  </div>
+</div>
+
+<div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+  <div class="card-header">Top 10 Colleges</div>
+  <div class="card-body">
+    <h5 class="card-title">Chemical Engineering</h5>
+    <p>Top colleges sorted using our smart algorithm that considers previous years rankings and naac grades</p>
+     <a class="btn btn-warning" href="/top-colleges-branch/12" role="button">Open List</a>
+  </div>
+</div>
+
+
+
+</div>
+<br>
+<br>
+<br>
+
+<h2 class="text-center">
+
+Search college using rank
+</h2>
+<br>
+<br>
+  <div class="card text-white bg-dark mb-3" style="width: 72rem;
+ background: #fe8c00;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f83600, #fe8c00);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f83600, #fe8c00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  ">
+  
+  <div class="card-body">
+    <h5 class="card-title">Get a list of colleges you can get into.</h5>
+    <p class="card-text">We have ordered colleges with our smart algorithm that takes previous year rankings and college grading into account </p>
+    <%= form_for :search, url: search_url, html: {class: "nifty_form"} do |f| %>
+ 
+ <div class="form-group">
+ <%= f.label :your_Rank %>
+  <%= f.number_field :rank , class: "form-control" %>
+ 
+ </div>
+  <div class="form-group">
+    <%= f.label :branch %>
+
+<%= f.select(:branch, options_for_select(@all_branches), {}, {class: "form-control"}) %>
+
+  
+  </div>
+
+  <%= f.submit "Search" ,class:"btn btn-warning mb-2"%>
 <% end %>
+
+</div>
+
+</div>
+
+
+

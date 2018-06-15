@@ -1,12 +1,13 @@
 
+
 <div class="jumbotron text-white" style="background: #DA22FF;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #9733EE, #DA22FF);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #9733EE, #DA22FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
 ">
-  <h1 class="display-4">Top colleges for your rank and branch</h1>
-  
+  <h1 class="display-4">Top 10 colleges for <%= @branch.name %></h1>
+  <p class="lead">Top 10 colleges sorted using our smart algorithm</p>
 
 </div>
  <p>
@@ -14,10 +15,10 @@ background: linear-gradient(to right, #9733EE, #DA22FF); /* W3C, IE 10+/ Edge, F
           </p>
 <div class="card" style="width: 72rem;">
   <div class="card-header">
-    List of colleges you can get into
+    Branch and corresponding rank
   </div>
   <ul class="list-group list-group-flush">
-   <% @results.each do |result| %>
+   <% @colleges.each do |result| %>
     <li class="list-group-item">
     <%= link_to result.college.name, college_path(result.college)%>
     <div class="flaot-right btn btn-primary text-right" style="float:right;">
@@ -28,6 +29,3 @@ background: linear-gradient(to right, #9733EE, #DA22FF); /* W3C, IE 10+/ Edge, F
      <% end %>
   </ul>
 </div>
-
-   
-

@@ -1,0 +1,71 @@
+ <main role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h4 class=""> <%= @college.name %></h4>
+          <% if !@college.description.blank? %>
+          <p><%= @college.description %> </p>
+          <% else %>
+          <p>This is info about college</p>
+          <% end %>
+          <p> Website: </p>
+          <% if !@college.website.blank? %>
+          <%= link_to @college.website , @college.website , class:"btn btn-primary btn-lg"%>
+          <% else %>
+           <%= link_to "website" , "http://google.com" %>
+          <% end %>
+
+          <% if !@college.address.blank? %>
+          <br>
+          <br>
+          <p class="btn btn-warning ">Address:</p>
+          <p><%= @college.address %> </p>
+          <% else %>
+          <p>College adress to be added</p>
+          <% end %>
+           <% if !@college.image_url.blank? %>
+          <br>
+          <br>
+          <p class="btn btn-danger ">Image:</p>
+          <p>
+           <img src="<%= @college.image_url %>" alt="college image" class="img-rounded">
+          </p>
+         
+         
+          <% end %>
+          <p>
+          <a href="javascript:window.print()" class="btn btn-warning btn-lg">Print this page</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="flex-row d-flex flex-wrap justify-content-around">
+           <% @cutoffs.each do |cutoff| %>
+         <div class="card text-white bg-dark mb-3" style="max-width: 18rem;
+        background: #6a3093;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #a044ff, #6a3093);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #a044ff, #6a3093); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+         ">
+  <div class="card-header"><%= cutoff.branch.name %></div>
+  <div class="card-body">
+    <h5 class="card-title">Cutoff Rank :  <%= cutoff.rank %> </h5>
+    
+  </div>
+</div>
+         
+          <% end %>
+        </div>
+
+        <hr>
+
+      </div> <!-- /container -->
+
+    </main>
+
+  
+
+
