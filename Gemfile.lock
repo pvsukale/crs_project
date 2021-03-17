@@ -344,7 +344,7 @@ GEM
       activerecord (>= 3.0)
     popper_js (1.12.9)
     powerpack (0.1.1)
-    puma (3.11.0)
+    puma (3.12.6)
     rack (2.0.4)
     rack-protection (2.0.1)
       rack
@@ -507,7 +507,7 @@ DEPENDENCIES
   minitest-ci
   minitest-reporters
   pg
-  puma (~> 3.2)
+  puma (~> 3.12)
   rack-protection (>= 2.0)
   rack-timeout
   rails (~> 5.1)
