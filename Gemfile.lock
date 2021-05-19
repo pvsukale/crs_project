@@ -347,7 +347,7 @@ GEM
     powerpack (0.1.1)
     puma (3.11.0)
     racc (1.5.2)
-    rack (2.0.4)
+    rack (2.2.3)
     rack-protection (2.0.1)
       rack
     rack-test (0.8.2)
